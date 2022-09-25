@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAL Frog exp</title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- our css -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand">Frog CAL</a>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav ml-auto nav-right">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="docs.html">Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="developers.html">Developers</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container text-center">
+        <!-- total head row -->
+        <div class="row justify-content-center">
+            <!-- first head column -->
+            <div class="col-4 boxed head1">
+                <div class="frognum">
+                        <p>Frog Num: <span class="" id="frognum-value">1</span></p>
+                </div>
+                <!-- data store for ringer -->
+                <div class="storage">
+                    <div class="row storage1">
+                        <div class="col-5 timelabel">
+                            <p>Ringer : </p>
+                        </div>
+                        <div class="col">
+                            <input id="hut" class="time-entry" type="text">
+                        </div>
+                        <div class="col">
+                            <input class="time-entry" type="text">
+                        </div>
+                        <div class="col">
+                            <input class="time-entry" type="text">
+                        </div>
+                    
+                    </div>
+                    <br>
+                    <!-- data store for drug2 -->
+                    <div class="row storage2">
+                        <div class="col-5 timelabel">
+                            <p>Drug : </p>
+                        </div>
+                        <div class="col">
+                            <input class="time-entry" type="text">
+                        </div>
+                        <div class="col">
+                            <input class="time-entry" type="text">
+                        </div>
+                        <div class="col">
+                            <input class="time-entry" type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- choose the  instill drug -->
+                <form action="">
+                    <label for="drug-name">Drug :&nbsp;</label>
+                    <select name="" id="myselect">
+                        <option value="1" selected>Ringer</option>
+                        <option value="2">Acetylcholine</option>
+                        <option value="3">Atropine</option>
+                        <option value="4">Physostigmine</option>
+                    </select>
+                </form>
+                <button type="button" class="instill btn btn-success btn-lg" onclick="getIndex()">Instill</button>
+            </div>
+            <!-- FROG IMG -->
+            <div class="col-3 boxed image-container">
+                <img id="frog-pic" src="images/frog-pic.jpg" alt="">
+            </div>
+            <!-- FROG FIELD -->
+            <div class="col-3 boxed image-container">
+                <img id="frog-field" src="images/frog-field.jpg" alt="">
+                <img id="ball" src="" alt="">
+                <div class="row labels">
+                    <div class="col druglabel">
+                        <p>Drug : <span id="drug-acting">None</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row for controls! -->
+        <div class="row">
+            <div class="col boxed end1">
+                <button class="btn btn-dark" onclick="increment()">New</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- WHEN NEXT IS PRESSED -->
+                <button type="button" class="btn btn-dark">Next</button>
+            </div>
+            <div class="col"></div>
+            <div class="col boxed end2">
+                <div class="row">
+                    <div class="col-3 timer-col">
+                        <!-- TIMER -->
+                        <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-dark" id="button-start">Start</button>
+                        <!-- <button class="btn btn-dark" id="button-stop">Stop</button> -->
+                        <button class="btn btn-dark" id="button-reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

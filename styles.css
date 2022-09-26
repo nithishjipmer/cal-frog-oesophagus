@@ -1,0 +1,239 @@
+body {
+    overflow-x: hidden !important;
+    overflow-y: hidden;
+    /* Hide horizontal scrollbar */
+}
+
+h1,
+h4 {
+    color: black;
+}
+
+/* navbar */
+
+.navbar-brand {
+    padding-left: 10%;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.nav-item {
+    padding: 0 45px 0 0;
+}
+
+.nav-right {
+    padding-right: 9%;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white !important;
+    font-weight: 400;
+}
+
+/* adds a margin around the divs used! */
+.boxed {
+    border: 2px solid black;
+    margin: 2%;
+    padding: 0;
+}
+
+.head1 label {
+    line-height: 1.5;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.time-entry {
+    width: 100%;
+    height: 80%;
+}
+
+#frog-pic, #frog-field{
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.image-container {
+    padding: 0;
+}
+
+.labels {
+    margin-top: 5%;
+}
+
+.frognum {
+    padding-right: 0;
+    margin: 4% 0 0 0;
+    font-size: xx-large;
+}
+
+
+.timelabel p {
+    font-size: x-large;
+    font-weight: 400;
+}
+
+form {
+    margin: 6% 0 0 0;
+    font-size: larger;
+}
+
+
+.end1, .end2 {
+    padding: 1.5%;
+}
+.end2 p {
+    font-size: 1.4rem;
+}
+
+.storage {
+    /* background-color: #198754; */
+    background-color: black;
+}
+.storage h4 {
+    color: white;
+    padding: 3% 0 3% 0;
+}
+
+.druglabel p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 8% 0 0 0;
+}
+
+/* for ipad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .druglabel p {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 8% 0 0 0;
+        }
+    #frog-pic {
+        height: 100%;
+    }
+    .boxed {
+        margin-top: 7%;
+    }
+    #frog-field {
+        height: 70%;
+    }
+}
+
+/* for ipad pro */
+@media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .druglabel p {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 8% 0 0 0;
+        }
+    
+        #frog-pic {
+            height: 100%;
+        }
+    
+        .boxed {
+            margin-top: 7%;
+        }
+    
+        #frog-field {
+            height: 70%;
+        }
+}
+
+/* for ipad pro 12.9' */
+@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .druglabel p {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 8% 0 0 0;
+        }
+    
+        #frog-pic {
+            height: 100%;
+        }
+    
+        .boxed {
+            margin-top: 4%;
+        }
+    
+        #frog-field {
+            height: 70%;
+        }
+        .btn-dark {
+            width: 80px;
+            height: 45px;
+        }
+}
+
+/* ipad air */
+@media only screen and (min-device-width: 1180px) and (max-device-width: 1180px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .druglabel p {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 8% 0 0 0;
+        }
+    
+        #frog-pic {
+            height: 100%;
+        }
+    
+        .boxed {
+            margin-top: 7%;
+        }
+    
+        #frog-field {
+            height: 70%;
+        }
+        .btn-dark {
+            width: 60px;
+            height: 40px;
+        }
+}
+
+#button-start, #button-stop, #button-reset {
+    margin-right: 5%;
+}
+
+.timer-col p {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #198754;
+}
+
+#ball {
+    position: absolute;
+    width: 1%;
+    background-color: transparent;
+    top: 25%;
+    left: 80%;
+}
+
+.instill {
+    margin: 3% 0 3% 0   ;
+}
+
+/* styling the pop up box */
+#box {
+    width: 20%;
+    position: absolute;
+    text-align: center;
+    left: 40%;
+    bottom: 60%;
+    padding: 2%;
+    margin: auto;
+    z-index: 20;
+    display: none;
+    height: 30%;
+    background-color: white;
+    border: solid black 4px;
+}
+#box button {
+    margin-top: 5%;
+}
+#box label {
+    font-size: x-large;
+    font-weight: 600;
+}

@@ -1,209 +1,216 @@
-// FROGS NUMBER
-let count = 1;
+var table;
+var prince;
 var n = 0;
-var instilled = false;
-var rdm = -1;
-var frogImg = document.getElementById("frog-pic")
+var imgWidth = 210;
+var imgHeight = 300;
+var shown = 1000;
+var king;
 
 
-function increment() {
-    event.stopPropagation();
-    // ans button
-    if (rdm > -1){
-        document.getElementById("box").style.display = "block";
-        frogImg.addEventListener("click", function(){
-            frogImg.removeEventListener("click", rollover())
-        })
+// responsive
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    shown = 913;
+    imgWidth = 200;
     }
-
-    // new button
-    else {
-        rdm = -1;
-        instilled = false;
-        n = 0;
-        count += 1;
-        document.getElementById("frognum-value").innerText = count;
-        document.getElementById("history").value = "";
-    }
-    
 }
-// document.getElementById("box").onclick = event.stopPropagation();
+var x = window.matchMedia("(max-width: 1180px)");
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
 
-// when next button is clicked!
-function final() {
-    var newButton = document.getElementById("new");
-    var nextButton = document.getElementById("next");
-    rdm = Math.floor(Math.random() * 3);
-    newButton.innerHTML = "Ans";
-    // getIndex()
-    nextButton.disabled = true;
-    newButton.disabled = true;
-    document.getElementById("myselect").options[0].text = "Unknown";
-    document.getElementById("myselect").disabled = true;
+
+
+
+table = document.getElementById("drugtable");
+
+
+const scroll = document.getElementById("scroll-element");
+var canvas = document.getElementById("canvas"),
+  ctx = canvas.getContext("2d"); 
+window,onload = function(){
+  scroll.scrollLeft = canvas.width / 4;
 }
+var textX = canvas.width / 4 + shown - imgWidth + 0
+var textY = 250
+var imgX = canvas.width / 4 + shown - imgWidth;
+var imgY = 0;
 
 
-// checking pop up data
-function checkPop(){
-    var rightDrug
-    var objt
-    var selectedt
-    event.stopPropagation();
-    objt = document.getElementById("inlineFormCustomSelect");
-    selectedt = objt.selectedIndex;
-    rightDrug = objt.options[rdm].text;
-    if (selectedt == rdm){
-        alert("You've got it right!\nThe right answer is " + rightDrug)
-    }
-    else {
-        alert("Sorry, you've got it wrong.\nThe right answer is " + rightDrug);
-    }
-    document.getElementById("box").style.display = "none";
-    document.getElementById("new").innerHTML = "New";
-    document.getElementById("next").disabled = "false";
-    location.reload()
-}
+document.getElementById("answer-btn").disabled = true;
 
 
+var phe
+var atr
+var mep
+var pro
+var rdm 
+var correctAns;
+rdm = Math.floor(Math.random() * 13);
+correctAns = table.options[rdm].text;
 
+function instill() {
+    document.getElementById("answer-btn").innerText = shown;
 
-// STOPWATCH
-window.onload = function () {
-
-    document.getElementById("history").disabled = true;
-
-    var seconds = 00;
-    var tens = 00;
-    var appendTens = document.getElementById("tens");
-    var appendSeconds = document.getElementById("seconds");
-    var buttonStart = document.getElementById("button-start");
-    // var buttonStop = document.getElementById("button-stop");
-    var buttonReset = document.getElementById("button-reset");
-    var Interval;
-    var on = 1;
-
+    prince = table.options[table.selectedIndex].text;
+    document.getElementById("selected").value = prince;
+    n += 1;
     
-    buttonStart.onclick = function () {
-        if (on == 1) {
-            buttonStart.innerText = "Stop";
-            clearInterval(Interval);
-            Interval = setInterval(startTimer, 10);
-            on = 0;
-        }
-        else if (on == 0) {
-            buttonStart.innerText = "Start";
-            clearInterval(Interval);
-            on = 1;
-        }
-        
-    };
-
-    // buttonStop.onclick = function () {
-    //     clearInterval(Interval);
-    // };
-
-    buttonReset.onclick = function () {
-        clearInterval(Interval);
-        tens = "00";
-        seconds = "00";
-        appendTens.innerHTML = tens;
-        appendSeconds.innerHTML = seconds;
-        on = 1;
-        buttonStart.innerText = "Start";
-    };
-
-    function startTimer() {
-        tens++;
-
-        if (tens <= 9) {
-        appendTens.innerHTML = "0" + tens;
-        }
-
-        if (tens > 9) {
-        appendTens.innerHTML = tens;
-        }
-
-        if (tens > 99) {
-        console.log("seconds");
-        seconds++;
-        appendSeconds.innerHTML = "0" + seconds;
-        tens = 0;
-        appendTens.innerHTML = "0" + 0;
-        }
-
-        if (seconds > 9) {
-        appendSeconds.innerHTML = seconds;
-        }
-    }
-    };
-
-// getting input from form
-// Instill
-function getIndex() {
-    var ball = document.getElementById("ball");
-    ball.src = "";
-    instilled = true;
-    if (rdm > -1){
-        obj = document.getElementById("inlineFormCustomSelect");
-        var selected = rdm + 1;
-        document.getElementById("new").disabled = false;
-        // drug history
-        n += 1;
-        // document.getElementById("history").value += n + ") " + obj.options[rdm].text + "\n";
-        document.getElementById("history").value += n + ") " + "Unknown\n";
-        // drug acting
-        // document.getElementById("drug-acting").innerHTML = obj.options[rdm].text;
-        document.getElementById("drug-acting").innerHTML = "Unknown";
-    }
-    else {
-        obj = document.getElementById("myselect");
-        var selected = obj.selectedIndex;
-        // disabling unused drugs
-        // drug history
-        n += 1;
-        document.getElementById("history").value += n + ") " + obj.options[selected].text + "\n";
-        // drug acting
-        document.getElementById("drug-acting").innerHTML = obj.options[selected].text;
-    }
+    imgTag = new Image();
     
-    var frogImg = document.getElementById("frog-pic");
-
-    
-    // ball rolling
-    frogImg.addEventListener("click", function rollover(){
-        
-        ball.src = "images/yellow-ball.png";
-        if (selected == 0) {
-            myMove(6);
-        }
-        if (selected == 1) {
-            myMove(7.6);
-        }
-        if (selected == 2) {
-            myMove(3.4);
-        }
-        if (selected == 3) {
-            myMove(12);
-        }
-    });
-
-}
-
-var id = null;
-function myMove(m) {
-    var elem = document.getElementById("ball");
-    var pos = 25;
-    clearInterval(id);
-    id = setInterval(frame, 10);
-    function frame() {
-        if (pos > 56) {
-        clearInterval(id);
-        ball.src =""
+    ctx.translate(imgWidth, 0)
+    // data about the graphs
+    perform()
+    function perform(){
+      if (table.selectedIndex == 0) {
+        if (phe == 1) {
+          imgTag.src = "images/flat.jpg"; // load image
         } else {
-        pos += m/1000;
-        elem.style.top = pos + "%";
+          imgTag.src = "images/co.jpg"; // load image
         }
+      } else if (table.selectedIndex == 1) {
+        imgTag.src = "images/cv.jpg"; // load image
+      } else if (table.selectedIndex == 2) {
+        imgTag.src = "images/pv.jpg"; // load image
+      } else if (table.selectedIndex == 3) {
+        if (phe == 1) {
+          imgTag.src = "images/epi2.jpg"; // load image
+        } else {
+          imgTag.src = "images/epi.jpg"; // load image
+        }
+      } else if (table.selectedIndex == 4) {
+        if (phe == 1) {
+          imgTag.src = "images/atr.jpg"; // load image
+        } else {
+          imgTag.src = "images/nepi.jpg"; // load image
+        }
+      } else if (table.selectedIndex == 5) {
+        imgTag.src = "images/iso.jpg"; // load image
+        if (pro == 1) {
+          imgTag.src = "images/flat.jpg"; // load image
+        } else {
+          imgTag.src = "images/iso.jpg"; // load image
+        }
+      } else if (table.selectedIndex == 6) {
+        if (atr == 1) {
+          imgTag.src = "images/flat.jpg"; // load image
+        } else {
+          imgTag.src = "images/ach.jpg"; // load image
+        }
+      } else if (table.selectedIndex == 7) {
+        if (mep == 1) {
+          imgTag.src = "images/his2.jpg"; // load image
+        } else {
+          imgTag.src = "images/his.jpg"; // load image
+        }
+      } else if (table.selectedIndex == 8) {
+        if (phe == 1) {
+          imgTag.src = "images/eph2.jpg"; // load image
+        } else {
+          imgTag.src = "images/eph.jpg"; // load image
+        }
+      } else if (table.selectedIndex == 9) {
+        imgTag.src = "images/phe.jpg"; // load image
+        phe = 1;
+      } else if (table.selectedIndex == 10) {
+        imgTag.src = "images/pro.jpg"; // load image
+        pro = 1;
+      } else if (table.selectedIndex == 11) {
+        imgTag.src = "images/flat.jpg"; // load image
+        mep = 1;
+      } else if (table.selectedIndex == 12) {
+        imgTag.src = "images/flat.jpg"; // load image
+        mep = 1;
+      } else if (table.selectedIndex == 13) {
+        imgTag.src = "images/atr.jpg"; // load image
+        atr = 1;
+      } else if (table.selectedIndex == 14) {
+        table.selectedIndex = rdm;
+        king = 1;
+        perform()
+        document.getElementById("selected").value = "Unknown";
+        table.options[table.selectedIndex].text = "Unknown";
+        document.getElementById("answer-btn").disabled = false;
+      }
     }
+    
+    // when the image is ready
+    imgTag.onload = animate;
+    scroll.scrollLeft = canvas.width / 4 + imgWidth * (n - 1);
+}
+
+// adds the image to the canvas
+function animate(){
+    ctx.drawImage(imgTag, imgX, imgY, imgWidth, imgHeight); // draw image at current position
+    ctx.font = "20px Calibri";
+    ctx.fillStyle = "red";
+    // names of the drug
+    if (king == 1){
+      ctx.fillText("Unknown", textX, textY);
+      king = 0;
+      table.selectedIndex = 14;
+    } else {
+      if (table.selectedIndex == 3) {
+        ctx.fillText("Epi", textX, textY);
+      } else if (table.selectedIndex == 0) {
+        ctx.fillText("CO", textX, textY);
+      } else if (table.selectedIndex == 1) {
+        ctx.fillText("CV", textX, textY);
+      } else if (table.selectedIndex == 2) {
+        ctx.fillText("PV", textX, textY);
+      } else if (table.selectedIndex == 4) {
+        ctx.fillText("Nepi", textX, textY);
+      } else if (table.selectedIndex == 5) {
+        ctx.fillText("Iso", textX, textY);
+      } else if (table.selectedIndex == 6) {
+        ctx.fillText("Ach", textX, textY);
+      } else if (table.selectedIndex == 7) {
+        ctx.fillText("His", textX, textY);
+      } else if (table.selectedIndex == 8) {
+        ctx.fillText("Eph", textX, textY);
+      } else if (table.selectedIndex == 9) {
+        ctx.fillText("Phe", textX, textY);
+      } else if (table.selectedIndex == 10) {
+        ctx.fillText("Pro", textX, textY);
+      } else if (table.selectedIndex == 11) {
+        ctx.fillText("Cim", textX, textY);
+      } else if (table.selectedIndex == 12) {
+        ctx.fillText("Mep", textX, textY);
+      } else if (table.selectedIndex == 13) {
+        ctx.fillText("Atr", textX, textY);
+      } else if (table.selectedIndex == 14) {
+        ctx.fillText("Unknown", textX, textY);
+      }
     }
-// 160, 330, 0.5
+    
+    roll()
+    
+}
+
+// mech of moving
+function roll(){
+    scroll.scrollLeft += 10;
+    if (scroll.scrollLeft < canvas.width/4 + imgWidth*n){
+        requestAnimationFrame(roll);
+    }
+}
+
+function cleared(){
+  phe = 0;
+  atr = 0;
+  mep = 0;
+  pro = 0;
+}
+
+function answer(){
+  ansIndex = document.getElementById("modaldrugs").selectedIndex
+  ans = document.getElementById("modaldrugs").value;
+  if (ansIndex == rdm){
+    document.getElementById("final-body").innerHTML =
+      "Correct!\nThe correct answer is " + correctAns +".";
+  } else{
+    document.getElementById("final-body").innerHTML =
+      "Wrong.\nThe right answer is " + correctAns + ".";
+  }
+  document.getElementById("final-save").style.display = "none";
+}
 

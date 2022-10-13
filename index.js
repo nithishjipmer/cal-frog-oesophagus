@@ -38,7 +38,7 @@ var mqls = [
         // mobile
         pos = 40;
         end = 120;
-        m = 1.7;
+        m = 2;
     }
     if (!mqls[0].matches && !mqls[1].matches) {
         // ipad pro 12'

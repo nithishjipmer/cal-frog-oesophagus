@@ -37,7 +37,7 @@ var mqls = [
     if (mqls[2].matches) {
         // mobile
         pos = 40;
-        end = 100;
+        end = 200;
 //         m = 1.4;
         m = 20;
     }

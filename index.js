@@ -178,7 +178,7 @@ function getIndex() {
 
 end = 67;
 pos = 11;
-m = 10;
+// m = 10;
 
 var id = null;
 function myMove(m) {
